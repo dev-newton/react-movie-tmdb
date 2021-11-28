@@ -1,0 +1,38 @@
+.nav__container {
+  height: 64px;
+  background-color: var(--nav-bg-color);
+  width: 100%;
+}
+
+.nav__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 24px 0 20px;
+  height: 100%;
+}
+
+.nav__left {
+  display: flex;
+  align-items: center;
+}
+
+.nav__left h3 {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--light-color);
+  display: flex;
+  align-self: center;
+  margin-bottom: 5px;
+}
+
+.nav__left .nav__icon {
+  padding-right: 15px;
+}
+
+.nav__icon {
+  color: var(--light-color);
+  font-size: 28px;
+  cursor: pointer;
+}
