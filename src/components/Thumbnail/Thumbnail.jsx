@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Thumbnail.css";
 
-const Thumbnail = ({ image, movieId, movieName }) => {
+// This component renders the movie poster, and it recieves the image and
+// movieId from the movies component
+const Thumbnail = ({ image, movieId }) => {
   return (
     <div className="thumbnail">
+      {/* movieId is passed as the pathname so we can navigate to the
+         movie detail of the movieId that was passed  */}
       <Link
         to={{
           pathname: `/${movieId}`,
-          movieName: `${movieName}`,
         }}
       >
         <img src={image} alt="thumbnail" />
@@ -21,7 +24,6 @@ const Thumbnail = ({ image, movieId, movieName }) => {
 Thumbnail.propTypes = {
   image: PropTypes.string,
   movieId: PropTypes.number,
-  movieName: PropTypes.string,
 };
 
 export default Thumbnail;
