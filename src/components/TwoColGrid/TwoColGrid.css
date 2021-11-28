@@ -1,0 +1,18 @@
+.grid__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+}
+
+.grid__element {
+  animation: animateGrid 0.5s;
+}
+
+@keyframes animateGrid {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
