@@ -2,9 +2,16 @@
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
+### System Requirements
+#### Browser
+- Google chrome
+
+#### Code Editor
+- VS Code
+
 ### Prerequisites
 
-You need to create an API KEY in [The Movie Database API](https://www.themoviedb.org/documentation/api). 
+You need to create an API KEY in [The Movie Database API](https://www.themoviedb.org/documentation/api).   
 Create a `.env` file in the root of the project after following the installation instructions below, but just before running `yarn start`, and paste the code below in the `.env` file. NB: Don't forget to replace the value of REACT_APP_API_KEY with your own API key. After pasting the code in your env file, save the file and run `yarn start` still in your project root directory.
 
 ```
@@ -38,11 +45,19 @@ Ensure you are in the root of the project and run
 yarn run test
 ```
 
+### Debugging
+- React developer tools
+- Redux dev tools
+
+
 ## Built With
 
 - [React JS](https://reactjs.org/)
 - [React Router](https://github.com/ReactTraining/react-router)
 - [Redux](https://redux.js.org/)
 - [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- [React Icons](https://react-icons.github.io/react-icons/)
+- [Axios](https://www.npmjs.com/package/axios)
+- [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
 
