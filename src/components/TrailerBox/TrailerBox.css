@@ -1,0 +1,18 @@
+.trailer__box {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 2px;
+  color: var(--primary-bg-color);
+  margin-bottom: 8px;
+  animation: animateGrid 0.5s;
+}
+
+.trailer__box p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  padding-left: 20px;
+}

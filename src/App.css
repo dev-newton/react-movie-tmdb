@@ -8,7 +8,7 @@
 :root {
   --primary-bg-color: #746a64;
   --primary-text-color: #757575;
-  --dark-color: #000000;
+  --dark-color-one: #000000;
+  --dark-color-two: #212121;
   --light-color: #ffffff;
-  --nav-bg-color: #212121;
 }

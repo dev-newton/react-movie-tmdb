@@ -1,0 +1,30 @@
+.details__content {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.year {
+  color: var(--dark-color-two);
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.duration {
+  color: var(--dark-color-two);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.rating {
+  color: var(--dark-color-two);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 16px;
+}

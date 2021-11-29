@@ -1,6 +1,6 @@
 .nav__container {
   height: 64px;
-  background-color: var(--nav-bg-color);
+  background-color: var(--dark-color-two);
   width: 100%;
 }
 

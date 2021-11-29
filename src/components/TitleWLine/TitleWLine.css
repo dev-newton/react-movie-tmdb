@@ -1,0 +1,13 @@
+.trailer__header {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: var(--primary-text-color);
+}
+
+.trailer__header__hr {
+  border: none;
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 16px;
+}

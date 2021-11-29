@@ -1,0 +1,21 @@
+.wrapper {
+  padding: 0 24px;
+}
+
+.movie__desc {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--primary-text-color);
+  padding-bottom: 24px;
+  animation: animateGrid 0.5s;
+}
+
+@keyframes animateGrid {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
