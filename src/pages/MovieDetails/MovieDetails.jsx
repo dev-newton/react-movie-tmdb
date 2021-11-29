@@ -38,21 +38,30 @@ const MovieDetails = () => {
     // eslint-disable-next-line
   }, [id]);
 
+  const {
+    original_title,
+    poster_path,
+    overview,
+    runtime,
+    release_date,
+    vote_average,
+  } = movie || {};
+
   return (
     <Layout navTitle="Movie details">
       {loading ? (
         <Spinner />
       ) : (
         <>
-          <Header title={movie?.original_title} />
+          <Header title={original_title} />
           <div className="wrapper">
             <MovieBox
-              image={`${REACT_APP_IMAGE_BASE_URL}${REACT_APP_POSTER_SIZE}${movie?.poster_path}`}
-              year={movie?.release_date}
-              duration={movie?.runtime}
-              rating={movie?.vote_average}
+              image={`${REACT_APP_IMAGE_BASE_URL}${REACT_APP_POSTER_SIZE}${poster_path}`}
+              year={release_date}
+              duration={runtime}
+              rating={vote_average}
             />
-            <p className="movie__desc">{movie?.overview}</p>
+            <p className="movie__desc">{overview}</p>
             <TitleWLine title="TRAILERS" />
             {movie?.videos.results.map((video, i) => (
               <TrailerBox
@@ -61,6 +70,7 @@ const MovieDetails = () => {
                 title={`Play trailer ${i + 1}`}
               />
             ))}
+            {!movie?.videos.results.length && <p>No Trailers available!</p>}
           </div>
         </>
       )}
