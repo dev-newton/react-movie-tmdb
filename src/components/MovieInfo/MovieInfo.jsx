@@ -3,7 +3,7 @@ import Button from "components/Button/Button";
 import { getYear } from "helpers/";
 import "./MovieInfo.css";
 
-const MovieInfo = ({ year, duration, rating }) => {
+const MovieInfo = ({ year = 0, duration = 0, rating = 0 }) => {
   return (
     <div className="details__content">
       <div className="year__duration__wrapper">

@@ -5,13 +5,16 @@ import { useHistory } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = ({ navTitle }) => {
-  const { location, goBack } = useHistory();
+  const history = useHistory();
+
+  const location = history?.location;
+  const goBack = history?.goBack;
 
   return (
     <nav className="nav__container">
       <div className="nav__wrapper">
         <div className="nav__left">
-          {location.pathname !== "/" && (
+          {location?.pathname !== "/" && (
             <div onClick={() => goBack()} className="nav__icon">
               <FiArrowLeft />
             </div>

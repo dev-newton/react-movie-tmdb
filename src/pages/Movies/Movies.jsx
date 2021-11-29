@@ -31,6 +31,21 @@ const Movies = () => {
     }
   };
 
+  const renderItems = movies.map((element, i) => {
+    const { poster_path, id, original_title } = element;
+    return (
+      <Thumbnail
+        key={i}
+        image={
+          poster_path &&
+          `${REACT_APP_IMAGE_BASE_URL}${REACT_APP_POSTER_SIZE}${poster_path}`
+        }
+        movieId={id}
+        movieName={original_title}
+      />
+    );
+  });
+
   useEffect(() => {
     // Function to get movies data
     fetchItems(false);
@@ -40,19 +55,7 @@ const Movies = () => {
   return (
     <Layout navTitle="Pop Movies">
       <div className="home__grid">
-        <TwoColGrid>
-          {movies.map((element, i) => (
-            <Thumbnail
-              key={i}
-              image={
-                element.poster_path &&
-                `${REACT_APP_IMAGE_BASE_URL}${REACT_APP_POSTER_SIZE}${element.poster_path}`
-              }
-              movieId={element.id}
-              movieName={element.original_title}
-            />
-          ))}
-        </TwoColGrid>
+        <TwoColGrid>{renderItems}</TwoColGrid>
         {loading && <Spinner />}
         {currentPage < totalPages && !loading && (
           <LoadMoreBtn onClick={() => fetchItems(true)} text="Load More" />
