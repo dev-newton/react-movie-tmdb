@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import Header from "components/Header/Header";
@@ -7,24 +8,26 @@ import TitleWLine from "components/TitleWLine/TitleWLine";
 import Layout from "layout/Layout";
 import TrailerBox from "components/TrailerBox/TrailerBox";
 import Spinner from "components/Spinner/Spinner";
+import { getMovieById } from "../../redux/actions/movie";
 import "./MovieDetails.css";
-
-import apiService from "services/apiService";
 
 const { REACT_APP_IMAGE_BASE_URL, REACT_APP_POSTER_SIZE } = process.env;
 
 const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
-  const [movie, setMovie] = useState(null);
 
   const { id } = useParams();
+
+  const movie = useSelector((state) => state.movie.movie);
+
+  const dispatch = useDispatch();
 
   const fetchItems = async () => {
     setLoading(true);
     try {
-      const response = await apiService.getMoviesDataById(id);
+      await dispatch(getMovieById(id));
       setLoading(false);
-      setMovie(response.data);
+      // setMovie(response.data);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -63,14 +66,14 @@ const MovieDetails = () => {
             />
             <p className="movie__desc">{overview}</p>
             <TitleWLine title="TRAILERS" />
-            {movie?.videos.results.map((video, i) => (
+            {movie?.videos?.results.map((video, i) => (
               <TrailerBox
                 key={i}
                 videoLink={video?.key}
                 title={`Play trailer ${i + 1}`}
               />
             ))}
-            {!movie?.videos.results.length && <p>No Trailers available!</p>}
+            {!movie?.videos?.results.length && <p>No Trailers available!</p>}
           </div>
         </>
       )}

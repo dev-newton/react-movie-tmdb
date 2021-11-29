@@ -1,30 +1,36 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Thumbnail from "components/Thumbnail/Thumbnail";
 import TwoColGrid from "components/TwoColGrid/TwoColGrid";
 import Layout from "layout/Layout";
 import Spinner from "components/Spinner/Spinner";
 import LoadMoreBtn from "components/LoadMoreBtn/LoadMoreBtn";
-
-import apiService from "services/apiService";
+import { getMovies } from "../../redux/actions/movie";
 
 const { REACT_APP_IMAGE_BASE_URL, REACT_APP_POSTER_SIZE } = process.env;
 
 const Movies = () => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState([]);
+
+  const { results, page, total_pages } = useSelector(
+    (state) => state.movie.movies
+  );
+
+  useEffect(() => {
+    if (results) {
+      setMovies((movies) => [...movies, ...results]);
+    }
+  }, [results]);
+
+  const dispatch = useDispatch();
 
   const fetchItems = async (loadMore) => {
     setLoading(true);
     try {
-      const response = await apiService.getMoviesData(loadMore, currentPage);
-
+      await dispatch(getMovies(loadMore, page));
       setLoading(false);
-      setMovies([...movies, ...response.data.results]);
-      setCurrentPage(response.data.page);
-      setTotalPages(response.data.total_pages);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -57,7 +63,7 @@ const Movies = () => {
       <div className="home__grid">
         <TwoColGrid>{renderItems}</TwoColGrid>
         {loading && <Spinner />}
-        {currentPage < totalPages && !loading && (
+        {page < total_pages && !loading && (
           <LoadMoreBtn onClick={() => fetchItems(true)} text="Load More" />
         )}
       </div>
