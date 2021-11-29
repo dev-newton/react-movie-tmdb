@@ -1,46 +1,16 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-
 import Header from "components/Header/Header";
 import MovieBox from "components/MovieBox/MovieBox";
 import TitleWLine from "components/TitleWLine/TitleWLine";
 import Layout from "layout/Layout";
 import TrailerBox from "components/TrailerBox/TrailerBox";
 import Spinner from "components/Spinner/Spinner";
-import { getMovieById } from "../../redux/actions/movie";
 import "./MovieDetails.css";
+
+import useMovieDetails from "./hook/useMovieDetails";
 
 const { REACT_APP_IMAGE_BASE_URL, REACT_APP_POSTER_SIZE } = process.env;
 
 const MovieDetails = () => {
-  const [loading, setLoading] = useState(false);
-
-  const { id } = useParams();
-
-  const movie = useSelector((state) => state.movie.movie);
-
-  const dispatch = useDispatch();
-
-  const fetchItems = async () => {
-    setLoading(true);
-    try {
-      await dispatch(getMovieById(id));
-      setLoading(false);
-      // setMovie(response.data);
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    // Function to get movies data by id
-    if (id && id !== "") fetchItems();
-    // eslint-disable-next-line
-  }, [id]);
-
   const {
     original_title,
     poster_path,
@@ -48,7 +18,9 @@ const MovieDetails = () => {
     runtime,
     release_date,
     vote_average,
-  } = movie || {};
+    loading,
+    movie,
+  } = useMovieDetails();
 
   return (
     <Layout navTitle="Movie details">
