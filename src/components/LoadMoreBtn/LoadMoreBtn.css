@@ -1,0 +1,19 @@
+.loadmorebtn {
+  background: var(--nav-bg-color);
+  width: 40%;
+  min-height: 50px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 10px auto;
+}
+
+.loadmorebtn p {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.loadmorebtn:hover {
+  opacity: 0.8;
+}

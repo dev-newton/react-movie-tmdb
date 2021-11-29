@@ -11,8 +11,9 @@ const Thumbnail = ({ image, movieId }) => {
       {/* movieId is passed as the pathname so we can navigate to the
          movie detail of the movieId that was passed  */}
       <Link
+        className="thumbnail__wrapper"
         to={{
-          pathname: `/${movieId}`,
+          pathname: `/movie/${movieId}`,
         }}
       >
         <img src={image} alt="thumbnail" />

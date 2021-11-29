@@ -12,11 +12,7 @@ const TwoColGrid = (props) => {
     return gridComponents;
   };
 
-  return (
-    <div className="grid">
-      <div className="grid__content">{renderComponents()}</div>
-    </div>
-  );
+  return <div className="grid__content">{renderComponents()}</div>;
 };
 
 export default TwoColGrid;
