@@ -4,7 +4,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You need to create an API KEY in [The Movie Database API](https://www.themoviedb.org/documentation/api)
+You need to create an API KEY in [The Movie Database API](https://www.themoviedb.org/documentation/api). 
 Create a `.env` file in the root of the project after following the installation instructions below, but just before running `yarn start`, and paste the code below in the `.env` file. NB: Don't forget to replace the value of REACT_APP_API_KEY with your own API key. After pasting the code in your env file, save the file and run `yarn start` still in your project root directory.
 
 ```
