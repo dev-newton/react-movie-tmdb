@@ -24,7 +24,7 @@ export default {
   getMoviesDataById(id) {
     return axios({
       method: "get",
-      url: `${this.url}movie/${id}?api_key=${REACT_APP_API_KEY}&language=en-US
+      url: `${this.url}movie/${id}?api_key=${REACT_APP_API_KEY}&append_to_response=videos&language=en-US
       `,
     });
   },

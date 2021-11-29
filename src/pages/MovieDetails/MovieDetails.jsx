@@ -34,9 +34,9 @@ const MovieDetails = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     // Function to get movies data by id
-    fetchItems();
+    if (id && id !== "") fetchItems();
     // eslint-disable-next-line
-  }, []);
+  }, [id]);
 
   return (
     <Layout navTitle="Movie details">
@@ -54,8 +54,13 @@ const MovieDetails = () => {
             />
             <p className="movie__desc">{movie?.overview}</p>
             <TitleWLine title="TRAILERS" />
-            <TrailerBox title="Play trailer 1" />
-            <TrailerBox title="Play trailer 2" />
+            {movie?.videos.results.map((video, i) => (
+              <TrailerBox
+                key={i}
+                videoLink={video?.key}
+                title={`Play trailer ${i + 1}`}
+              />
+            ))}
           </div>
         </>
       )}
